@@ -1,50 +1,97 @@
 .book-list {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-gap: 24px;
-padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 200px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(255, 107, 107, 0.1);
 }
+
 body {
-background: #010b10;
-font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #0c0c1a, #1a1a3a, #2a2a5a, #3a3a7a);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
 }
 
-
-.book-card {
-transition: transform 0.2s ease-in-out;
-border-radius: 12px;
-color:yellowgreen;
-}
-.book-card:hover {
-transform: scale(1.03);
-box-shadow: 0 4px 15px rgba(241, 3, 185, 0.2);
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-
- .book-image {
-  width: 100%;               /* take full width */
-  height: 280px;             /* fixed uniform height */
-  object-fit: cover;         /* crop correctly */
-  border-radius: 12px;
+.book_card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 16px;
+  color: yellowgreen;
+  background: linear-gradient(145deg, rgba(40, 40, 70, 0.9), rgba(25, 25, 55, 0.95));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* REMOVE object-cover (It breaks the grid) */
-/* .object-cover {
+.book_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #ffe66d, #ff6b6b);
+  background-size: 300% 300%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.book_card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3), 0 0 30px rgba(255, 107, 107, 0.2);
+  border-color: rgba(255, 107, 107, 0.5);
+}
+
+.object-cover {
   width: 100% !important;
   height: 280px !important;
   object-fit: cover !important;
   border-radius: 12px;
-} */
-
-.book-title {
-font-size: 20px;
-font-weight: bold;
-margin-top: 10px;
-color: #db0f0f;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
+.book_card:hover .object-cover {
+  transform: scale(1.05);
+}
+
+.book-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  background: linear-gradient(45deg, #ff6b6b, #ff9a9a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+}
 
 .book-author, .book-genre {
-color: #86ec02;
-margin-top: 4px;
+  color: #86ec02;
+  margin-top: 4px;
+  font-size: 14px;
+  text-shadow: 0 1px 3px rgba(134, 236, 2, 0.3);
+  background: linear-gradient(45deg, #86ec02, #a8ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
