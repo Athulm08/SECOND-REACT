@@ -1,0 +1,50 @@
+.book-list {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 24px;
+padding: 20px;
+}
+body {
+background: #010b10;
+font-family: Arial, sans-serif;
+}
+
+
+.book-card {
+transition: transform 0.2s ease-in-out;
+border-radius: 12px;
+color:yellowgreen;
+}
+.book-card:hover {
+transform: scale(1.03);
+box-shadow: 0 4px 15px rgba(241, 3, 185, 0.2);
+}
+
+
+ .book-image {
+  width: 100%;               /* take full width */
+  height: 280px;             /* fixed uniform height */
+  object-fit: cover;         /* crop correctly */
+  border-radius: 12px;
+}
+
+/* REMOVE object-cover (It breaks the grid) */
+/* .object-cover {
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  border-radius: 12px;
+} */
+
+.book-title {
+font-size: 20px;
+font-weight: bold;
+margin-top: 10px;
+color: #db0f0f;
+}
+
+
+.book-author, .book-genre {
+color: #86ec02;
+margin-top: 4px;
+}
